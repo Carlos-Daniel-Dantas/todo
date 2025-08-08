@@ -1,6 +1,8 @@
+lista_tarefas = []
 while True:
     print("""
-_______________________________________
+    
+ ______________________________________
 |      GERENCIADOR DE TAREFAS          |
 |______________________________________|
 |   1. Ler lista                       |
@@ -28,15 +30,17 @@ _______________________________________
         ler = open("lista.txt", "r")
         print(f"{ler.read()}")
         remov = input("Qual item você deseja remover: ")
-        linha_remover = ler.readlines()
-        ler.close()
-        escrever_tarefas = open("lista.txt", "w")
-        escrever_tarefas.writelines(remov)
-        print(f"{remov} Removido")
+        with open("lista.txt", "r") as arquivo:
+            for linha in arquivo:
+                if remov not in linha:
+                    lista_tarefas.append(linha)
+        with open ("lista.txt", "w") as arquivo:   
+            arquivo.writelines(lista_tarefas)        
 
 
     elif opcao == 4:
         concluir = input("Qual item você deseja concluir")
+        
 
     elif opcao == 5:
         ler = open("lista.txt", "r")
