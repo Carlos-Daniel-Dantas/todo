@@ -39,8 +39,16 @@ while True:
 
 
     elif opcao == 4:
-        concluir = input("Qual item você deseja concluirR")
-
+        concluir = input("Qual item você deseja concluir")
+        arquivo = open("concluida.txt", "a")
+        arquivo.write(f"{concluir} \n ")
+        arquivo.close
+        with open("lista.txt", "r") as arquivo:
+            for linha in arquivo:
+                if remov not in linha:
+                    lista_tarefas.append(linha)
+        with open ("lista.txt", "w") as arquivo:   
+            arquivo.writelines(lista_tarefas)        
 
     elif opcao == 5:
         ler = open("lista.txt", "r")
