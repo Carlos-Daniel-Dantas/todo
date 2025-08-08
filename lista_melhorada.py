@@ -39,8 +39,8 @@ while True:
 
 
     elif opcao == 4:
-        concluir = input("Qual item você deseja concluir")
-        
+        concluir = input("Qual item você deseja concluirR")
+
 
     elif opcao == 5:
         ler = open("lista.txt", "r")
